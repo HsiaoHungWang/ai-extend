@@ -1,0 +1,6 @@
+openai>=1.40
+requests
+python-dotenv
+# 搬入範例時，依該範例需要再補套件，例如：
+# langchain-openai   # LangChain 範例
+tiktoken             # p28 token 估算
