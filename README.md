@@ -1,7 +1,6 @@
 # ai-extend：Notebook 以外的延伸範例
 
-上課範例以 `../Moda_API_v3-2-3.ipynb` 為主；notebook 沒有提供的程式範例，從 `../ai-practice` 挑選搬到這裡。
-結構與 `ai-practice` 相同：每支範例都從 `common.py` 取得 client 與參數。
+上課範例以 `../Moda_API_v3-2-3.ipynb` 為主；這裡是補充 notebook 沒有提供的程式範例
 
 ## 環境準備（Windows PowerShell）
 
@@ -34,6 +33,8 @@ ai-extend/
 | 檔案 | 用途 | 對應簡報頁 | 執行方式 |
 |---|---|---|---|
 | `common.py` | 環境準備（金鑰、端點、client） | — | 由其他檔案匯入，不直接執行 |
+| `p04_apikey.py` | 讀取 API Key：用 `os.environ.get("KEY1")` 取環境變數並遮罩顯示；註解示範 `load_dotenv()` 與 `override=True`（.env 覆蓋系統環境變數） | p04 | `python p04_apikey.py`（先設定 `$env:KEY1="..."` 或解開 `load_dotenv()`） |
+| `p21_stream.py` | 串流比較：同一提示詞分別以 `stream=False`／`stream=True` 呼叫，比較「第一個字時間」與總時間 | p21 | `python p21_stream.py`（國網中心）／`python p21_stream.py moda`（ModaOne） |
 | `p28_token_count.py` | tiktoken 估算 token，對照回應的 usage | p28 | `python p28_token_count.py` |
 | `p32_sliding_window.py` | 滑動視窗（函式版，程式碼同投影片）：system 永遠保留＋最近 5 輪；第 7 輪考記憶 | p32 | `python p32_sliding_window.py` |
 | `p33_summary_memory.py` | 摘要壓縮（函式版，程式碼同投影片）：舊對話濃縮成摘要，觀察摘要失真與成本 | p33 | `python p33_summary_memory.py` |
@@ -43,10 +44,3 @@ ai-extend/
 | `p40_guard_basics.py` | 防護觀測：輸入過濾與遮罩、輸出禁用字檢查、呼叫日誌（logs/）、成本上限 | p40 | `python p40_guard_basics.py` |
 | `responses_previous_id.py` | Responses API 多輪對話（OpenAI 官方端點，需 `OPENAI_API_KEY`）：① `previous_response_id` 接續、不存 history，觀察 input_tokens 仍累加 ② 斷鏈即失憶 | — | `python responses_previous_id.py` |
 
-## 從 ai-practice 搬檔時注意
-
-- **相依檔案要一起搬**：
-  - `10`～`13` 匯入 `harness.py`；`11`、`13` 還會匯入 `07_tool_call.py`（沿用假資料庫與查詢函式）
-  - `12_production.py eval` 需要 `eval_cases.json`
-- 模型名稱、端點一律從 `common.py` 匯入（`MODEL_NAME`、`VLM_MODEL`、`TOOL_MODEL`、`API_BASE`），不要寫死在範例裡。
-- 有額外套件的範例（例如 LangChain），記得補進 `requirements.txt`。
