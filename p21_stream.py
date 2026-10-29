@@ -1,7 +1,7 @@
 """
 比較 stream=False 與 stream=True 的差別
-執行：python 23_stream_compare.py          # 國網中心端點
-      python 23_stream_compare.py moda     # ModaOne 端點
+執行：python p21_stream.py          # 國網中心端點
+      python p21_stream.py moda     # ModaOne 端點
 
 看什麼：
   - stream=False：等很久 → 整篇一次出現（第一個字時間 ≈ 總時間）
@@ -27,7 +27,8 @@ PROMPT = "請寫一篇以未來城市為背景的短篇小說："
 def ask(stream):
     print(f"\n===== stream={stream} =====")
     start, first = time.time(), None
-     
+    r = client.completions.create(model=MODEL, prompt=PROMPT, max_tokens=500, stream=stream)
+
     if stream:
         for chunk in r:                       # 收到一塊印一塊
             if chunk.choices and chunk.choices[0].text:
