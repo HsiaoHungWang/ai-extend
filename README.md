@@ -5,12 +5,10 @@
 ## 環境準備（Windows PowerShell）
 
 ```powershell
-cd ai-extend
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-copy .env.example .env      # 填入 API_KEY；或直接複製 ..\ai-practice\.env
-python -c "from common import client; print([m.id for m in client.models.list().data])"   # 確認金鑰可用
+copy .env.example .env      # 填入 API_KEY
 ```
 
 ## 資料夾結構
