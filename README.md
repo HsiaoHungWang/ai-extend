@@ -1,13 +1,19 @@
 # ai-extend：Notebook 以外的延伸範例
 
-上課範例以 `../Moda_API_v3-2-3.ipynb` 為主；這裡是補充 notebook 沒有提供的程式範例
+上課範例以 `Moda_API_v3-2-3.ipynb` 為主；這裡是補充 notebook 沒有提供的程式範例
 
 ## 環境準備（Windows PowerShell）
 
 ```powershell
 python -m venv .venv
+```
+```powershell
 .\.venv\Scripts\Activate.ps1
+```
+```powershell
 pip install -r requirements.txt
+```
+```powershell
 copy .env.example .env      # 填入 API_KEY
 ```
 
@@ -37,7 +43,6 @@ ai-extend/
 | `p28_token_count.py` | tiktoken 估算 token，對照回應的 usage | p28 | `python p28_token_count.py` |
 | `p32_sliding_window.py` | 滑動視窗（函式版，程式碼同投影片）：system 永遠保留＋最近 5 輪；第 7 輪考記憶 | p32 | `python p32_sliding_window.py` |
 | `p33_summary_memory.py` | 摘要壓縮（函式版，程式碼同投影片）：舊對話濃縮成摘要，觀察摘要失真與成本 | p33 | `python p33_summary_memory.py` |
-| `p31_memory_strategies.py` | 【課後延伸】五種記憶策略對照（class 版）：① 全量 ② 滑動視窗 ③ 摘要壓縮 ④ 向量檢索（bge-m3）⑤ 結構化記憶；同一劇本比較記憶與 token | p31～p33 | `python p31_memory_strategies.py <full\|window\|summary\|vector\|structured\|all>` |
 | `p35_prompt_assembly.py` | 提示詞組裝：固定模板 + 動態資料 + 用 ### 分隔使用者輸入 | p35 | `python p35_prompt_assembly.py` |
 | `p35_memory_basics.py` | 最簡單的記憶層：存、選（最近 2 輪）、壓（摘要）、找（長期記憶） | p35 | `python p35_memory_basics.py` |
 | `p40_guard_basics.py` | 防護觀測：輸入過濾與遮罩、輸出禁用字檢查、呼叫日誌（logs/）、成本上限 | p40 | `python p40_guard_basics.py` |

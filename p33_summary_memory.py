@@ -80,4 +80,4 @@ if __name__ == "__main__":
             print(f"   【摘要】{history[0]['content']}")
 
     print(f"\n👉 摘要呼叫累計花了 {summary_tokens:,} tokens，換來每輪 prompt_tokens 不再一路變大")
-    print("👉 檢查摘要裡的訂單編號是不是 A-10234：重要事實建議另外存成結構化欄位（見 p31_memory_strategies.py structured）")
+    print("👉 檢查摘要裡的訂單編號是不是 A-10234：重要事實建議另外存成結構化欄位")
