@@ -39,8 +39,8 @@ ai-extend/
 | `p00_hello.py` | 環境檢查：印出 `Hello All`，確認 Python 已裝好 | — | `python p00_hello.py` |
 | `common.py` | 環境準備（金鑰、端點、client） | — | 由其他檔案匯入，不直接執行 |
 | `p04_apikey.py` | 讀取 API Key：用 `os.environ.get("KEY1")` 取環境變數並遮罩顯示；註解示範 `load_dotenv()` 與 `override=True`（.env 覆蓋系統環境變數） | p04 | `python p04_apikey.py`（先設定 `$env:KEY1="..."` 或解開 `load_dotenv()`） |
-| `p21_stream.py` | 串流比較：同一提示詞分別以 `stream=False`／`stream=True` 呼叫，比較「第一個字時間」與總時間 | p21 | `python p21_stream.py`（國網中心）／`python p21_stream.py moda`（ModaOne） |
-| `p28_token_count.py` | tiktoken 估算 token，對照回應的 usage | p28 | `python p28_token_count.py` |
+| `p19_token_count.py` | tiktoken 估算 token，對照回應的 usage | p19 | `python p19_token_count.py` |
+| `p22_stream.py` | 串流比較：同一提示詞分別以 `stream=False`／`stream=True` 呼叫，比較「第一個字時間」與總時間 | p22 | `python p22_stream.py`（國網中心）／`python p22_stream.py moda`（ModaOne） |
 | `p32_sliding_window.py` | 滑動視窗（函式版，程式碼同投影片）：system 永遠保留＋最近 5 輪；第 7 輪考記憶 | p32 | `python p32_sliding_window.py` |
 | `p33_summary_memory.py` | 摘要壓縮（函式版，程式碼同投影片）：舊對話濃縮成摘要，觀察摘要失真與成本 | p33 | `python p33_summary_memory.py` |
 | `p35_prompt_assembly.py` | 提示詞組裝：固定模板 + 動態資料 + 用 ### 分隔使用者輸入 | p35 | `python p35_prompt_assembly.py` |
